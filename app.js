@@ -25,11 +25,9 @@ app.use("/api", rutasCategorias);
 
 // Manejo de rutas no encontradas
 app.use((req, res, next) => {
-  res
-    .status(404)
-    .json({
-      message: "La ruta que ha especificado no se encuentra registrada.",
-    });
+  res.status(404).json({
+    message: "La ruta que ha especificado no se encuentra registrada.",
+  });
 });
 
 // Exportar la aplicación
