@@ -1,11 +1,9 @@
 import { Router } from "express";
-import { obtenerCompras } from "../controllers/compra.controller.js";
-
+import { obtenerEmpleados } from "../controllers/empleado.controller.js";
 
 const router = Router();
 
-
 // Ruta para obtener todos los clientes
-router.get("/compras", obtenerCompras);
+router.get("/empleado", obtenerEmpleados);
 
 export default router;
