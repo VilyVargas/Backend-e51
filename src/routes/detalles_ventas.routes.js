@@ -6,4 +6,6 @@ const router = Router();
 // Ruta para obtener todos los clientes
 router.get("/detallesventas", obtenerDetallesVentas);
 
+router.delete("/eliminardetalleventas/:id_detalle_venta", eliminadetalleventas);
+
 export default router;
