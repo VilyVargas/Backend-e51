@@ -38,7 +38,7 @@ export const eliminadetallecompras = async (req, res) => {
 };
 
 // Controlador para actualizar parcialmente un detalle de compra por su ID
-export const actualizardetalleComprapatch = async (req, res) => {
+export const actualizardetalleCompraPatch = async (req, res) => {
   try {
     const { id_detalle_compra } = req.params;
     const datos = req.body;

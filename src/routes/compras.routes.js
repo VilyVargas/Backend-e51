@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   eliminarcompra,
   obtenerCompras,
-  actualizarComprapatch
+  actualizarCompraPatch
 } from "../controllers/compra.controller.js";
 
 const router = Router();
@@ -12,6 +12,6 @@ router.get("/compras", obtenerCompras);
 
 router.delete("/eliminarcompra/:id_compra", eliminarcompra);
 
-router.patch("/actualizarcompra/:id_compra", actualizarComprapatch);
+router.patch("/actualizarcompra/:id_compra", actualizarCompraPatch);
 
 export default router;

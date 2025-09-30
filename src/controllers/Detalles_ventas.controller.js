@@ -38,7 +38,7 @@ export const eliminadetalleventas = async (req, res) => {
 };
 
 // Controlador para actualizar parcialmente un detalle de venta por su ID
-export const actualizardetalleVentapatch = async (req, res) => {
+export const actualizardetalleVentaPatch = async (req, res) => {
   try {
     const { id_detalle_venta } = req.params;
     const datos = req.body;
