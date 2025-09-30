@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { eliminadetallecompras, obtenerDetallesCompras  } from "../controllers/Detalles_compras.controller.js";
+import { eliminadetallecompras, obtenerDetallesCompras, actualizardetalleComprapatch  } from "../controllers/Detalles_compras.controller.js";
 
 const router = Router();
 
@@ -7,5 +7,7 @@ const router = Router();
 router.get("/detallescompras", obtenerDetallesCompras);
 
 router.delete("/eliminardetallecompras/:id_detalle_compra", eliminadetallecompras);
+
+router.patch("/actualizardetallecompra/:id_detalle_compra", actualizardetalleComprapatch);
 
 export default router;

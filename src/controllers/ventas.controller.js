@@ -36,3 +36,23 @@ export const eliminarventas = async (req, res) => {
     });
   }
 };
+
+// Controlador para actualizar parcialmente una venta por su ID
+export const actualizarVentapatch = async (req, res) => {
+  try {
+    const { id_venta } = req.params;
+    const datos = req.body;
+    const [result] = await pool.query(
+      "UPDATE Ventas SET ? WHERE id_venta = ?",
+      [datos, id_venta]
+    );
+    if (result.affectedRows === 0) {
+      return res
+        .status(404)
+        .json({ mensaje: `Venta con ID ${id_venta} no encontrado.` });
+    }
+    res.status(200).json({ mensaje: `Venta con ID ${id_venta} actualizado.` });
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al actualizar la venta.", error });
+  }
+};

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { eliminarempleado, obtenerEmpleados } from "../controllers/empleado.controller.js";
+import { eliminarempleado, obtenerEmpleados, actualizarEmpleadoPatch } from "../controllers/empleado.controller.js";
 
 const router = Router();
 
@@ -7,5 +7,7 @@ const router = Router();
 router.get("/empleados", obtenerEmpleados);
 
 router.delete("/eliminarempleado/:id_empleado", eliminarempleado);
+
+router.patch('/actualizarempleado/:id_empleado', actualizarEmpleadoPatch);
 
 export default router;

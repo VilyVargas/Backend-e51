@@ -36,3 +36,23 @@ export const eliminarproducto = async (req, res) => {
     });
   }
 };
+
+// Controlador para actualizar parcialmente un Producto por su ID
+export const actualizarProductoPatch = async (req, res) => {
+  try {
+    const { id_producto } = req.params;
+    const datos = req.body;
+    const [result] = await pool.query(
+      "UPDATE Productos SET ? WHERE id_producto = ?",
+      [datos, id_producto]
+    );  
+    if (result.affectedRows === 0) {
+      return res
+        .status(404)
+        .json({ mensaje: `Producto con ID ${id_producto} no encontrado.` });
+    }
+    res.status(200).json({ mensaje: `Producto con ID ${id_producto} actualizado.` });
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al actualizar el producto.", error });
+  }
+};

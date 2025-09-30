@@ -36,3 +36,23 @@ export const eliminarusuario = async (req, res) => {
     });
   }
 };
+
+// Controlador para actualizar parcialmente un usuario por su ID
+export const actualizarUsuarioPatch = async (req, res) => {
+  try {
+    const { id_usuario } = req.params;
+    const datos = req.body;
+    const [result] = await pool.query(
+      "UPDATE Usuarios SET ? WHERE id_usuario = ?",
+      [datos, id_usuario]
+    );
+    if (result.affectedRows === 0) {
+      return res
+        .status(404)
+        .json({ mensaje: `Usuario con ID ${id_usuario} no encontrado.` });
+    }
+    res.status(200).json({ mensaje: `Usuario con ID ${id_usuario} actualizado.` });
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al actualizar el usuario.", error });
+  }
+};

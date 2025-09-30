@@ -38,3 +38,21 @@ export const eliminarcompra = async (req, res) => {
 };
 
 // Controlador para actualizar parcialmente una compra por su ID
+export const actualizarComprapatch = async (req, res) => {
+  try {
+    const { id_compra } = req.params;
+    const datos = req.body;
+    const [result] = await pool.query(
+      "UPDATE compras SET ? WHERE id_compra = ?",
+      [datos, id_compra]
+    );
+    if (result.affectedRows === 0) {
+      return res
+        .status(404)
+        .json({ mensaje: `Compra con ID ${id_compra} no encontrado.` });
+    }
+    res.status(200).json({ mensaje: `Compra con ID ${id_compra} actualizado.` });
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al actualizar la compra.", error });
+  }   
+};
