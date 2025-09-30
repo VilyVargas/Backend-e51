@@ -36,3 +36,5 @@ export const eliminarcompra = async (req, res) => {
     });
   }
 };
+
+// Controlador para actualizar parcialmente una compra por su ID

@@ -10,5 +10,8 @@ router.get("/clientes", obtenerClientes);
 
 router.delete("/eliminarcliente/:id_cliente", eliminarcliente);
 
+// Ruta para actualizar un cliente por su ID
+
+
 
 export default router;

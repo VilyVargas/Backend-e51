@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { eliminarCategoria, obtenerCategorias } from "../controllers/categorias.controller.js";
+import { eliminarCategoria, obtenerCategorias, actualizarCategoriaPatch} from "../controllers/categorias.controller.js";
 
 
 const router = Router();
@@ -9,5 +9,9 @@ const router = Router();
 router.get("/categorias", obtenerCategorias);
 
 router.delete("/eliminarcategorias/:id_categoria", eliminarCategoria);
+
+// Ruta para actualizar una categoría por su ID
+router.patch('/actualizarcategoria/:id_categoria', actualizarCategoriaPatch);
+
 
 export default router;
