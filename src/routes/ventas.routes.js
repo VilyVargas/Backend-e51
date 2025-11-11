@@ -17,6 +17,6 @@ router.post('/registrarventa', registrarVenta);
 
 router.delete("/eliminarventa/:id_venta", eliminarventas);
 
-router.patch('/actualizarventa/:id_venta', actualizarVentaPatch);
+router.put('/actualizarventa/:id_venta', actualizarVentaPatch);
 
 export default router;
