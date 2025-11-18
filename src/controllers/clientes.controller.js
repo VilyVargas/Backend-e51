@@ -41,14 +41,14 @@ export const registrarCliente = async (req, res) => {
     const { primer_nombre
       , segundo_nombre,
       primer_apellido,
-      segundo_apellido, telefono
+      segundo_apellido, celular
       , direccion,
       cedula
     } = req.body;
     const [result] = await pool.query(
-      'INSERT INTO clientes (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, telefono, direccion, cedula) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      'INSERT INTO clientes (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, celular, direccion, cedula) VALUES (?, ?, ?, ?, ?, ?, ?)',
       [primer_nombre
-        , segundo_nombre, primer_apellido, segundo_apellido, telefono, direccion, cedula]
+        , segundo_nombre, primer_apellido, segundo_apellido, celular, direccion, cedula]
     );
     res.status(201).json({ id_cliente: result.insertId });
   } catch (error) {
